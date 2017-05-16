@@ -1,0 +1,12 @@
+{
+  "name": "distributed-accountancy",
+  "version": "0.0.1",
+  "description": "🏦 EXPERIMENT my dream tool for managing my personal finances 👨🏻‍💻💰💶",
+  "main": "index.js",
+  "repository": "https://github.com/Offirmo/distributed-accountancy.git",
+  "author": "Offirmo <offirmo.net@gmail.com>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "walletjs": "^1.2.1"
+  }
+}
