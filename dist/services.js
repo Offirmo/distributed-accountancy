@@ -91,12 +91,11 @@ function amounts_to_string(aa) {
         return s
     }).join(' ')
     */
-    return '.' + ALLOWED_CURRENCIES_ORDERED.map(function (c) {
-        var s = by_currency.hasOwnProperty(c)
-            ? (LEFT_PAD_HELP + by_currency[c].amount.toFixed(2) + ' ' + c).slice(-18)
-            : LEFT_PAD_HELP.slice(-18);
-        return s;
-    }).join(' ');
+    return '.' + ALLOWED_CURRENCIES_ORDERED
+        .map(function (c) { return by_currency.hasOwnProperty(c)
+        ? (LEFT_PAD_HELP + by_currency[c].amount.toFixed(2) + ' ' + c).slice(-18)
+        : LEFT_PAD_HELP.slice(-18); })
+        .join(' ');
 }
 exports.amounts_to_string = amounts_to_string;
 //# sourceMappingURL=services.js.map

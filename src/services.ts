@@ -99,12 +99,13 @@ function amounts_to_string(aa: Amount[]): string {
 	}).join(' ')
 	*/
 
-	return '.' + ALLOWED_CURRENCIES_ORDERED.map(c => {
-			let s = by_currency.hasOwnProperty(c)
+	return '.' + ALLOWED_CURRENCIES_ORDERED
+		.map(
+			c => by_currency.hasOwnProperty(c)
 				? (LEFT_PAD_HELP + by_currency[c].amount.toFixed(2) + ' ' + c).slice(-18)
 				: LEFT_PAD_HELP.slice(-18)
-			return s
-		}).join(' ')
+		)
+		.join(' ')
 }
 
 export {
