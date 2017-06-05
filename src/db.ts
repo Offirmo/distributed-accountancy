@@ -4,12 +4,29 @@ import { DB } from './types'
 
 function factory(): DB {
 	return {
-		users: [],
-		piggies: [],
-		accounts: [],
-		trades: [],
-		tags: [],
-		fixes: [],
+		users: {
+			all: [],
+			by_name: {},
+		},
+		piggies: {
+			all: [],
+			by_name: {},
+		},
+		accounts: {
+			all: [],
+			by_name: {},
+			by_alias: {},
+		},
+		trades: {
+			all: [],
+		},
+		tags: {
+			all: [],
+		},
+		fixes: {
+			all: [],
+			by_account_name: {},
+		},
 	}
 }
 

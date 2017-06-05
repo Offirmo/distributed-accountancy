@@ -1,6 +1,18 @@
 [
-	{ account: 'CM LDD YE',        date: '2017-01-01', amount:  '+6 096,47 EUR' },
-	{ account: 'CM PEL YE',        date: '2017-01-01', amount:  '+19 135,77 EUR' },
-	{ account: 'Bourso CC YE',     date: '2017-05-29', amount:  '+ 1 145,41 €' },
-	{ account: 'Bourso livret YE', date: '2017-05-29', amount:  '10 EUR' },
+	{ account: 'CM LDD YE',         date: '2017-01-01', amount:   '+6 096,47 EUR' },
+	{ account: 'CM PEL YE',         date: '2017-01-01', amount:  '+19 135,77 EUR' },
+
+	{ account: 'Bourso CC YE',      date: '2017-05-29', amount:  '+ 1 145,41 €' },
+	{ account: 'Bourso livret YE',  date: '2017-05-29', amount:          '10 EUR' },
+
+	{ account: 'Fortu CC YE',       date: '2017-06-05', amount:    '2 286,74 EUR' },
+	{ account: 'Fortu L+ YE',       date: '2017-06-05', amount:   '14 005,66 EUR' },
+	{ account: 'Fortu livret A YE', date: '2017-06-05', amount:   '23 094,00 EUR' },
+
+	{ account: 'Compte Nickel',     date: '2017-06-05', amount:   '1078,09 €' },
+
+	{ account: 'ING CC',            date: '2017-06-05', amount:   '1228,57 €' },
+	{ account: 'ING LEO',           date: '2017-06-05', amount:   '15000 €' },
+
+	{ account: 'WeSwap YE',           date: '2017-06-05', amounts:   ['900 €', 'A$891.30', 'S$143.54'] },
 ]

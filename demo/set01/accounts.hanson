@@ -13,38 +13,56 @@
 	},
 
 
+
 	{
-		name: 'Boursorama CC YE',
+		name: 'Boursorama / CC / YE',
+		aliases: [ 'Bourso CC YE' ],
 		autofix: true,
 	},
 	{
-		name: 'Boursorama Livret YE',
+		name: 'Boursorama / Livret / YE',
+		aliases: [ 'Bourso livret YE' ],
 		piggy: 'économies générales',
 	},
 
 
+
 	{
-		name: 'Fortuneo CC YE',
+		name: 'Fortuneo / CC / YE',
+		aliases: [ 'Fortu CC YE' ],
 		autofix: true,
 	},
 	{
-		name: 'Fortune Livret Plus YE',
+		name: 'Fortune / Livret+ / YE',
+		aliases: [ 'Fortu L+ YE' ],
 		piggy: 'économies générales',
 	},
 	{
-		name: 'Fortune Livret A YE',
+		name: 'Fortune / Livret A / YE',
+		aliases: [ 'Fortu livret A YE' ],
 		piggy: 'économies générales',
 	},
 
-	{
-		name: 'ING CC YE',
-	},
-	{
-		name: 'ING Livret Orange YE',
-	},
 
 	{
-		name: 'WeSwap YE',
+		name: 'ING Direct / CC / YE',
+		aliases: [ 'ING CC' ],
+	},
+	{
+		name: 'ING Direct / LEO / YE',
+		aliases: [ 'ING LEO' ],
+	},
+
+
+	{
+		name: 'Compte Nickel / YE',
+		aliases: [ 'Compte Nickel' ],
+	},
+
+
+	{
+		name: 'WeSwap / YE',
+		aliases: [ 'WeSwap YE' ],
 		autofix: true,
 	},
 ]

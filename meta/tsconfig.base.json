@@ -2,7 +2,7 @@
 	"compileOnSave": false,
 	"compilerOptions": {
 		"allowJs": false,
-		"lib": [ "es7", "DOM" ],
+		"lib": [ "es7" ],
 		"moduleResolution": "node",
 
 		"listEmittedFiles": false,
@@ -26,7 +26,7 @@
 		"declaration": true,
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
-		"importHelpers": true,
+		"importHelpers": false,
 		"newLine": "lf",
 		"sourceMap": true,
 		"noEmit": true

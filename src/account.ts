@@ -11,20 +11,27 @@ function state_factory(): AccountState {
 }
 
 function import_h(raw: any): Account {
-	const { name, piggy, autofix } = raw
+	const { name, piggy, autofix, aliases } = raw
 
 	return {
 		name,
 		piggy,
 		autofix: !!autofix,
+		aliases: aliases || [],
 
 		state: state_factory(),
 	}
 }
 
+/*
+function default_sort(arr: Account[]): Account[] {
+
+}
+*/
 
 ////////////////////////
 
 export {
+	state_factory,
 	import_h,
 }

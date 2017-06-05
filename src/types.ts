@@ -1,9 +1,9 @@
 import { Enum } from "typescript-string-enums"
+import { Wallet } from 'walletjs'
 
 ////////////////////////
 
 type DateISO8601 = string
-type Wallet = any
 
 const TradeDirection = Enum(
 	'input',
@@ -12,6 +12,10 @@ const TradeDirection = Enum(
 )
 type TradeDirection = Enum<typeof TradeDirection>
 
+interface Amount {
+	amount: number
+	currency: string
+}
 
 interface User {
 	name: string
@@ -32,6 +36,7 @@ interface Piggy extends PiggyDef {
 
 interface AccountDef {
 	name: string
+	aliases: string[]
 	piggy?: string
 	autofix: boolean
 }
@@ -43,15 +48,13 @@ interface Account extends AccountDef {
 }
 
 interface Fix {
+	account: string
 	date: DateISO8601
-	amount: number
-	currency: string
+	amounts: Amount[]
 }
 
-interface Trade {
+interface Trade extends Amount {
 	name: string
-	amount: number
-	currency: string
 	direction: TradeDirection
 	deal_date?: DateISO8601
 	effective_date?: DateISO8601
@@ -64,21 +67,42 @@ interface Trade {
 }
 
 interface DB {
-	users: User[]
-	piggies: Piggy[]
-	accounts: Account[]
-	trades: Trade[]
-	tags: string[]
-	fixes: Fix[]
+	users: {
+		all: User[]
+		by_name: { [name: string]: User }
+	}
+	piggies: {
+		all: Piggy[]
+		by_name: { [name: string]: Piggy }
+	}
+	accounts: {
+		all: Account[]
+		by_name: { [name: string]: Account }
+		by_alias: { [name: string]: Account }
+	}
+	trades: {
+		all: Trade[]
+	}
+	tags: {
+		all: string[]
+	}
+	fixes: {
+		all: Fix[]
+		by_account_name: { [name: string]: Fix[] }
+	}
 }
 
 ////////////////////////
 
 export {
+	DateISO8601,
 	TradeDirection,
+	Amount,
 	User,
+	PiggyDef,
 	PiggyState,
 	Piggy,
+	AccountDef,
 	AccountState,
 	Account,
 	Fix,
