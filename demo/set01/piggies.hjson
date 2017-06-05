@@ -1,23 +1,23 @@
 [
 	{
-		name: économies générales
+		name: 'économies générales'
 	},
 	{
-		name: partage
+		name: 'partage'
 	},
 	{
-		name: état français
+		name: 'état français'
 	},
 	{
-		name: état australien
+		name: 'état australien'
 	},
 	{
-		name: retraite
+		name: 'retraite'
 	},
 	{
-		name: fond de secours
+		name: 'fond de secours'
 	},
 	{
-		name: 10000%
+		name: '10000%'
 	},
 ]

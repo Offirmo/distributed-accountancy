@@ -77,6 +77,7 @@ interface DB {
 export {
 	TradeDirection,
 	User,
+	PiggyState,
 	Piggy,
 	AccountState,
 	Account,
