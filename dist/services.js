@@ -73,18 +73,30 @@ function amount_to_string(a) {
 exports.amount_to_string = amount_to_string;
 var ALLOWED_CURRENCIES_ORDERED = ['EUR', 'AUD', 'SGD'];
 exports.ALLOWED_CURRENCIES_ORDERED = ALLOWED_CURRENCIES_ORDERED;
-var MAX_LEFT_PAD = '          ';
+var LEFT_PAD_HELP = '                             ';
 function amounts_to_string(aa) {
     var by_currency = {};
     aa.forEach(function (a) { return by_currency[a.currency] = a; });
-    var res = '';
-    ALLOWED_CURRENCIES_ORDERED.forEach(function (c) {
+    /*
+    return '.' + ALLOWED_CURRENCIES_ORDERED.map(c => {
+        let s = by_currency.hasOwnProperty(c)
+            ? (LEFT_PAD_HELP + by_currency[c].amount.toLocaleString({
+                style: 'currency',
+                useGrouping: true,
+                currency: c,
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            })).slice(-19)
+            : LEFT_PAD_HELP.slice(-19)
+        return s
+    }).join(' ')
+    */
+    return '.' + ALLOWED_CURRENCIES_ORDERED.map(function (c) {
         var s = by_currency.hasOwnProperty(c)
-            ? (MAX_LEFT_PAD + by_currency[c].amount + ' ' + c).slice(-17)
-            : MAX_LEFT_PAD + '       ';
-        res += s;
-    });
-    return res;
+            ? (LEFT_PAD_HELP + by_currency[c].amount.toFixed(2) + ' ' + c).slice(-18)
+            : LEFT_PAD_HELP.slice(-18);
+        return s;
+    }).join(' ');
 }
 exports.amounts_to_string = amounts_to_string;
 //# sourceMappingURL=services.js.map

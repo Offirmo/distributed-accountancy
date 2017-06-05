@@ -79,21 +79,32 @@ function amount_to_string(a: Amount): string {
 }
 
 const ALLOWED_CURRENCIES_ORDERED = [ 'EUR', 'AUD', 'SGD' ]
-const MAX_LEFT_PAD = '          '
+const LEFT_PAD_HELP = '                             '
 function amounts_to_string(aa: Amount[]): string {
 	let by_currency = {}
 	aa.forEach(a => by_currency[a.currency] = a)
 
-	let res = ''
-
-	ALLOWED_CURRENCIES_ORDERED.forEach(c => {
+	/*
+	return '.' + ALLOWED_CURRENCIES_ORDERED.map(c => {
 		let s = by_currency.hasOwnProperty(c)
-			? (MAX_LEFT_PAD + by_currency[c].amount + ' ' + c).slice(-17)
-			: MAX_LEFT_PAD + '       '
-		res += s
-	})
+			? (LEFT_PAD_HELP + by_currency[c].amount.toLocaleString({
+				style: 'currency',
+				useGrouping: true,
+				currency: c,
+				minimumFractionDigits: 2,
+				maximumFractionDigits: 2,
+			})).slice(-19)
+			: LEFT_PAD_HELP.slice(-19)
+		return s
+	}).join(' ')
+	*/
 
-	return res
+	return '.' + ALLOWED_CURRENCIES_ORDERED.map(c => {
+			let s = by_currency.hasOwnProperty(c)
+				? (LEFT_PAD_HELP + by_currency[c].amount.toFixed(2) + ' ' + c).slice(-18)
+				: LEFT_PAD_HELP.slice(-18)
+			return s
+		}).join(' ')
 }
 
 export {
