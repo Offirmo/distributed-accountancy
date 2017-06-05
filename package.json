@@ -6,6 +6,9 @@
   "repository": "https://github.com/Offirmo/distributed-accountancy.git",
   "author": "Offirmo <offirmo.net@gmail.com>",
   "license": "UNLICENSED",
+  "scripts": {
+    "start": "./index.ts"
+  },
   "dependencies": {
     "@types/lodash": "^4.14.64",
     "@types/node": "^7.0.18",

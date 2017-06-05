@@ -20,7 +20,8 @@ import {
 	import_user,
 } from './src'
 
-//require('@offirmo/cli-toolbox/stdout/clear-cli')()
+import * as clearCli from '@offirmo/cli-toolbox/stdout/clear-cli'
+clearCli()
 
 
 const DATA_DIRECTORY = './demo/set01'
@@ -38,7 +39,7 @@ function load_human_json(path): any {
 	}
 }
 
-console.log(boxify('Offirmo‘s Distributed Accountancy'))
+console.log(boxify('💰Offirmo‘s Distributed Accountancy💰 '))
 
 
 const db = db_factory()
