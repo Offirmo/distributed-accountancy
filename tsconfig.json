@@ -1,0 +1,38 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"allowJs": false,
+		"lib": [ "es7" ],
+		"moduleResolution": "node",
+
+		"listEmittedFiles": false,
+		"listFiles": false,
+		"skipDefaultLibCheck": true,
+		"noEmitOnError": true,
+		"pretty": true,
+
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"forceConsistentCasingInFileNames": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": false,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noUnusedLocals": false,
+		"noUnusedParameters": true,
+		"strictNullChecks": true,
+
+		"alwaysStrict": true,
+		"declaration": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"importHelpers": false,
+		"newLine": "lf",
+		"sourceMap": true,
+		"noEmit": true
+	},
+	"include": [
+		"../typings-custom/**/*.ts",
+		"../src/**/*.ts"
+	]
+}

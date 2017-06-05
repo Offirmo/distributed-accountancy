@@ -1,0 +1,11 @@
+[
+	{
+		name: ABON CMUT DIRECT BAD394050000002801
+		direction: out
+		src: CMUT LDD YE
+		dest: CMUT
+		amount: 1€
+		trade_date: 2017-01-01
+		periodicity: monthly
+	},
+]

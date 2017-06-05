@@ -1,14 +1,18 @@
 # Contributing
 
 ## recommended reads
-* https://github.com/ReactiveX/RxJS
-* http://reactivex.io/rxjs/
-* http://reactivex.io/rxjs/manual/overview.html
+* ^
 
 
 ## references
 * https://www.typescriptlang.org/docs/handbook/compiler-options.html
 * (nodemon)
+* https://github.com/MaiaVictor/LJSON
+* https://github.com/hjson/hjson-js
+* https://github.com/dleitee/walletjs
+
+
+
 
 
 ## Tests
