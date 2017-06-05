@@ -179,7 +179,7 @@ console.log(`${logSymbols.success} Accounts:\n${prettifyJson(Object.keys(db.acco
 
 //console.log(prettifyJson(db))
 
-console.log(arrayify(db.fixes.all.map(fix_to_depth_0)))
+console.log(arrayify(Object.keys(db.fixes.latest_by_account_name).map(k => db.fixes.latest_by_account_name[k]).map(fix_to_depth_0)))
 
 /*
 db.accounts.forEach(account => {

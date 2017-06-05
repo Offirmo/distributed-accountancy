@@ -1,0 +1,4 @@
+[
+	{ trade_date: '2017-06-01', dest: 'WildLife', amount: '30 AUD', src: 'WeSwap YE', recurrence: 'monthly, 2017-06-01 -> ...' },
+	{ trade_date: '2017-05-01', dest: 'Hozana', amount: '500€', src: 'Nickel' },
+]

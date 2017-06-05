@@ -127,7 +127,7 @@ db.trades.all = raw_trades.map(_1.import_trade);
 console.log(logSymbols.success + " Users:\n" + prettifyJson(Object.keys(db.users.by_name)));
 console.log(logSymbols.success + " Accounts:\n" + prettifyJson(Object.keys(db.accounts.by_name)));
 //console.log(prettifyJson(db))
-console.log(arrayify(db.fixes.all.map(_1.fix_to_depth_0)));
+console.log(arrayify(Object.keys(db.fixes.latest_by_account_name).map(function (k) { return db.fixes.latest_by_account_name[k]; }).map(_1.fix_to_depth_0)));
 /*
 db.accounts.forEach(account => {
     console.log(account.name)
