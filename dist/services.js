@@ -66,4 +66,25 @@ function parse_raw_date(raw) {
     return step3;
 }
 exports.parse_raw_date = parse_raw_date;
+function amount_to_string(a) {
+    var amount = a.amount, currency = a.currency;
+    return amount + " " + currency;
+}
+exports.amount_to_string = amount_to_string;
+var ALLOWED_CURRENCIES_ORDERED = ['EUR', 'AUD', 'SGD'];
+exports.ALLOWED_CURRENCIES_ORDERED = ALLOWED_CURRENCIES_ORDERED;
+var MAX_LEFT_PAD = '          ';
+function amounts_to_string(aa) {
+    var by_currency = {};
+    aa.forEach(function (a) { return by_currency[a.currency] = a; });
+    var res = '';
+    ALLOWED_CURRENCIES_ORDERED.forEach(function (c) {
+        var s = by_currency.hasOwnProperty(c)
+            ? (MAX_LEFT_PAD + by_currency[c].amount + ' ' + c).slice(-17)
+            : MAX_LEFT_PAD + '       ';
+        res += s;
+    });
+    return res;
+}
+exports.amounts_to_string = amounts_to_string;
 //# sourceMappingURL=services.js.map

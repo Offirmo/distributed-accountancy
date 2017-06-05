@@ -1,5 +1,5 @@
 import { Amount, Fix } from './types'
-import { parse_raw_amount, parse_raw_date } from './services'
+import { parse_raw_amount, parse_raw_date, amounts_to_string } from './services'
 
 ////////////////////////
 
@@ -23,6 +23,20 @@ function import_h(raw: any): Fix {
 
 ////////////////////////
 
+function to_depth_0(fix: Fix): any {
+	const { account, date, amounts } = fix
+
+	return {
+		account,
+		date,
+		amount: amounts_to_string(amounts)
+	}
+}
+
+
+////////////////////////
+
 export {
 	import_h,
+	to_depth_0,
 }

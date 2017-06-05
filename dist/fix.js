@@ -18,4 +18,14 @@ function import_h(raw) {
     };
 }
 exports.import_h = import_h;
+////////////////////////
+function to_depth_0(fix) {
+    var account = fix.account, date = fix.date, amounts = fix.amounts;
+    return {
+        account: account,
+        date: date,
+        amount: services_1.amounts_to_string(amounts)
+    };
+}
+exports.to_depth_0 = to_depth_0;
 //# sourceMappingURL=fix.js.map

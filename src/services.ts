@@ -73,7 +73,33 @@ function parse_raw_date(raw: string): DateISO8601 {
 	return step3
 }
 
+function amount_to_string(a: Amount): string {
+	const { amount, currency } = a
+	return `${amount} ${currency}`
+}
+
+const ALLOWED_CURRENCIES_ORDERED = [ 'EUR', 'AUD', 'SGD' ]
+const MAX_LEFT_PAD = '          '
+function amounts_to_string(aa: Amount[]): string {
+	let by_currency = {}
+	aa.forEach(a => by_currency[a.currency] = a)
+
+	let res = ''
+
+	ALLOWED_CURRENCIES_ORDERED.forEach(c => {
+		let s = by_currency.hasOwnProperty(c)
+			? (MAX_LEFT_PAD + by_currency[c].amount + ' ' + c).slice(-17)
+			: MAX_LEFT_PAD + '       '
+		res += s
+	})
+
+	return res
+}
+
 export {
 	parse_raw_amount,
 	parse_raw_date,
+	ALLOWED_CURRENCIES_ORDERED,
+	amount_to_string,
+	amounts_to_string,
 }

@@ -19,6 +19,7 @@ import {
 	import_account,
 	Fix,
 	import_fix,
+	fix_to_depth_0,
 	import_piggy,
 	import_trade,
 } from '.'
@@ -178,7 +179,7 @@ console.log(`${logSymbols.success} Accounts:\n${prettifyJson(Object.keys(db.acco
 
 //console.log(prettifyJson(db))
 
-console.log(arrayify(db.fixes.all))
+console.log(arrayify(db.fixes.all.map(fix_to_depth_0)))
 
 /*
 db.accounts.forEach(account => {
