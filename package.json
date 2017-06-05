@@ -13,13 +13,14 @@
     "start": "node dist/runme.js"
   },
   "dependencies": {
+    "@offirmo/cli-toolbox": "^0",
     "@types/lodash": "^4.14.64",
     "@types/node": "^7.0.18",
-    "@offirmo/cli-toolbox": "^0",
     "hanson": "^1.2.0",
     "hjson": "^2.4.2",
     "ljson": "^2.1.0",
     "lodash": "^4.6.1",
+    "sqlite3": "^3.1.8",
     "ts-node": "^3.0.2",
     "typescript": "^2.3.2",
     "typescript-string-enums": "^0.3.2",
