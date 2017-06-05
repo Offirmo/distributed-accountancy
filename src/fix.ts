@@ -1,10 +1,10 @@
 import { Amount, Fix } from './types'
-import { parse_raw_amount } from './services'
+import { parse_raw_amount, parse_raw_date } from './services'
 
 ////////////////////////
 
 function import_h(raw: any): Fix {
-	const { account, date, amount: raw_amount, amounts: raw_amounts } = raw
+	const { account, date: raw_date, amount: raw_amount, amounts: raw_amounts } = raw
 
 	if (raw_amount && raw_amounts)
 		throw new Error(`A fix can't have amount and amounts`)
@@ -16,7 +16,7 @@ function import_h(raw: any): Fix {
 		raw_amounts.forEach(ra => amounts.push(parse_raw_amount(ra)))
 	return {
 		account,
-		date,
+		date: parse_raw_date(raw_date),
 		amounts,
 	}
 }

@@ -85,6 +85,9 @@ interface DB {
         by_account_name: {
             [name: string]: Fix[];
         };
+        latest_by_account_name: {
+            [name: string]: Fix;
+        };
     };
 }
 export { DateISO8601, TradeDirection, Amount, User, PiggyDef, PiggyState, Piggy, AccountDef, AccountState, Account, Fix, Trade, DB };

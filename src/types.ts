@@ -89,6 +89,7 @@ interface DB {
 	fixes: {
 		all: Fix[]
 		by_account_name: { [name: string]: Fix[] }
+		latest_by_account_name: { [name: string]: Fix }
 	}
 }
 

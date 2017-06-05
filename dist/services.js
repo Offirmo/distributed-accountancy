@@ -35,4 +35,35 @@ function parse_raw_amount(raw) {
     return res;
 }
 exports.parse_raw_amount = parse_raw_amount;
+function parse_raw_date(raw) {
+    var step0 = raw;
+    var step1 = step0.split(' ').join('');
+    var step2 = step1.replace('/', '-');
+    var step3 = step2;
+    switch (step2.length) {
+        case 8:
+            step3 = step2.slice(0, 3) + '-' + step2.slice(4, 5) + '-' + step2.slice(6, 7);
+            break;
+        case 10:
+            //ok
+            break;
+        default:
+            throw new Error("Unable to parse date \"" + step0 + "\" !");
+    }
+    var _a = step3.split('-'), y = _a[0], m = _a[1], d = _a[2];
+    if (y.length !== 4
+        || m.length !== 2
+        || d.length !== 2
+        || isNaN(Number(y))
+        || Number(y) > 2100 || Number(y) < 1981
+        || isNaN(Number(m))
+        || Number(m) > 12 || Number(m) < 0
+        || isNaN(Number(d))
+        || Number(d) > 31 || Number(d) < 0) {
+        console.error("Unable to parse date \"" + step0 + "\" !", { step0: step0, step1: step1, step2: step2, step3: step3 });
+        throw new Error("Unable to parse date \"" + step0 + "\" !");
+    }
+    return step3;
+}
+exports.parse_raw_date = parse_raw_date;
 //# sourceMappingURL=services.js.map

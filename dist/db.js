@@ -24,7 +24,8 @@ function factory() {
         },
         fixes: {
             all: [],
-            by_account_name: {}
+            by_account_name: {},
+            latest_by_account_name: {}
         }
     };
 }

@@ -26,6 +26,7 @@ function factory(): DB {
 		fixes: {
 			all: [],
 			by_account_name: {},
+			latest_by_account_name: {},
 		},
 	}
 }

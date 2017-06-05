@@ -56,29 +56,37 @@ const raw_trades   = load_human_json(DATA_DIRECTORY + '/2017/trades_EIRL.hjson')
 
 //////////// 2. load into DB
 
-interface ByOptions {
+interface ByOptions<T> {
 	aliases: boolean
 	debug_id: string
+	recouncile_fn(v1: T, v2: T): T | undefined
 }
-const default_ByOptions: ByOptions = {
-	aliases: false,
-	debug_id: '',
+function get_default_ByOptions<T>(): ByOptions<T> {
+	return {
+		aliases: false,
+			debug_id: '',
+		recouncile_fn: () => undefined
+	}
 }
+
 function unique_by_index<T extends Object>(
 	index_key: string,
 	list: T[],
-	someOptions: Partial<ByOptions> = default_ByOptions
+	someOptions: Partial<ByOptions<T>> = {}
 ): {[k: string]: T}
 {
 	const res: {[k: string]: T} = {}
-	const options: ByOptions = Object.assign({}, default_ByOptions, someOptions)
+	const options: ByOptions<T> = Object.assign({}, get_default_ByOptions<T>(), someOptions)
 
 	function insert_unique(key: string, value: T, lineno: number) {
 		if (typeof key === 'undefined')
 			throw new Error(`unique_by_index(${index_key}, ${options.debug_id}): wrong key "${key}" on elem #${lineno}!`)
-		if (res.hasOwnProperty(key))
-			throw new Error(`unique_by_index(${index_key}, ${options.debug_id}): duplicate key "${key}" on elem #${lineno}!`)
-		res[key] = value
+		if (res.hasOwnProperty(key)) {
+			value = options.recouncile_fn(res[key], value)!
+			if (!value)
+				throw new Error(`unique_by_index(${index_key}, ${options.debug_id}): duplicate key "${key}" on elem #${lineno}!`)
+		}
+		res[key] = value!
 	}
 
 	try {
@@ -99,11 +107,11 @@ function unique_by_index<T extends Object>(
 function many_by_index<T extends Object>(
 	index_key: string,
 	list: T[],
-	someOptions: Partial<ByOptions> = default_ByOptions
+	someOptions: Partial<ByOptions<T>> = {}
 ): {[k: string]: T[]}
 {
 	const res: {[k: string]: T[]} = {}
-	const options: ByOptions = Object.assign({}, default_ByOptions, someOptions)
+	const options: ByOptions<T> = Object.assign({}, get_default_ByOptions<T>(), someOptions)
 
 	function insert(key: string, value: T, lineno: number) {
 		if (typeof key === 'undefined') {
@@ -133,6 +141,7 @@ function many_by_index<T extends Object>(
 	return res
 }
 
+
 const db = db_factory()
 db.users.all = raw_users.map(import_user)
 db.users.by_name = unique_by_index<User>('name', db.users.all, {debug_id: 'user'})
@@ -150,6 +159,10 @@ const uniformized_raw_fixes = raw_fixes.map(function uniformize_account_name(rf,
 	return rf
 })
 db.fixes.all = uniformized_raw_fixes.map(import_fix)
+db.fixes.latest_by_account_name = unique_by_index<Fix>('account', db.fixes.all, {
+	debug_id: 'fix',
+	recouncile_fn: (v1: Fix, v2: Fix) => v1.date.localeCompare(v2.date) < 0 ? v2 : v1
+})
 db.fixes.by_account_name = many_by_index<Fix>('account', db.fixes.all, {debug_id: 'fix'})
 
 db.piggies.all = raw_piggies.map(import_piggy)
@@ -165,7 +178,7 @@ console.log(`${logSymbols.success} Accounts:\n${prettifyJson(Object.keys(db.acco
 
 //console.log(prettifyJson(db))
 
-//console.log(arrayify(db.accounts))
+console.log(arrayify(db.fixes.all))
 
 /*
 db.accounts.forEach(account => {
