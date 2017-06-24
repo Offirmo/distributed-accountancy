@@ -20,10 +20,15 @@
     "hjson": "^2.4.2",
     "ljson": "^2.1.0",
     "lodash": "^4.6.1",
+    "sql.js": "^0.4.0",
     "sqlite3": "^3.1.8",
     "ts-node": "^3.0.2",
     "typescript": "^2.3.2",
     "typescript-string-enums": "^0.3.2",
     "walletjs": "^1.2.1"
+  },
+  "devDependencies": {
+    "@types/sql.js": "0.0.28",
+    "@types/sqlite3": "^3.1.0"
   }
 }
