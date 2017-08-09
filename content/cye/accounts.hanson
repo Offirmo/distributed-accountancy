@@ -1,0 +1,99 @@
+[
+
+	{
+		name: 'YE / Crédit Mutuel / Livret de développement durable',
+		aliases: [ 'YE CMUT LDD' ],
+		tags: [ 'YE' ],
+		piggy: 'économies générales',
+	},
+
+	{
+		name: 'YE / Crédit Mutuel / Plan épargne logement',
+		aliases: [ 'YE CMUT PEL' ],
+		piggy: 'économies générales',
+	},
+
+
+
+	{
+		name: 'YE / Boursorama / CC',
+		aliases: [ 'YE Bourso CC' ],
+		autofix: true,
+	},
+	{
+		name: 'YE / Boursorama / Livret',
+		aliases: [ 'YE Bourso livret' ],
+		piggy: 'économies générales',
+	},
+
+
+
+	{
+		name: 'YE / Fortuneo / CC',
+		aliases: [ 'YE Fortu CC' ],
+		autofix: true,
+	},
+	{
+		name: 'YE / Fortune / Livret+',
+		aliases: [ 'YE Fortu L+' ],
+		piggy: 'économies générales',
+	},
+	{
+		name: 'YE / Fortune / Livret A',
+		aliases: [ 'YE Fortu livret A' ],
+		piggy: 'économies générales',
+	},
+
+
+	{
+		name: 'YE / ING Direct / CC',
+		aliases: [ 'YE ING CC' ],
+	},
+	{
+		name: 'YE / ING Direct / LEO',
+		aliases: [ 'YE ING LEO' ],
+	},
+
+
+	{
+		name: 'YE / Compte Nickel',
+		aliases: [ 'Compte Nickel' ],
+	},
+
+
+	{
+		name: 'YE / WeSwap',
+		aliases: [ 'WeSwap YE' ],
+		autofix: true,
+	},
+
+
+	{
+		name: 'C+YE / NAB / Cheque',
+		aliases: [ 'NAB Cheque' ],
+	},
+
+	{
+		name: 'C+YE / NAB / Cheque',
+		aliases: [ 'NAB Cheque' ],
+	},
+
+	{
+		name: 'C+YE / NAB / Savings',
+		aliases: [ 'NAB Savings' ],
+	},
+
+
+	{
+		name: 'YE / AXA Epargne Entreprise',
+		// www.ere.axa.fr
+	},
+
+	{
+		name: 'YE / Crédit Mutuel Epargne Salariale',
+	},
+
+	{
+		name: 'YE / Amundi Epargne Salariale',
+	},
+]
